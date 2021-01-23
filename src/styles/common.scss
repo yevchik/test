@@ -1,0 +1,10 @@
+@import "variables";
+@import "mixins";
+
+body {
+  margin: 0;
+  background: $colorBg;
+  color: var(--color-font-main);
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: -0.02em;
+}
