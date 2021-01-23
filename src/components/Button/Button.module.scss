@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+
+.button {
+  padding: 16px;
+  width: 100%;
+  text-align: center;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.buttonFilled {
+  border-radius: 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  color: var(--color-buttons-secondary);
+  background: var(--color-buttons-main);
+  min-width: 264px;
+  height: 48px;
+  &:hover {
+    filter: drop-shadow(0px 4px 4px rgba(41, 45, 51, 0.6));
+  }
+}
