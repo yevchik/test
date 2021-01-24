@@ -12,7 +12,6 @@ export function validateName(value) {
 }
 
 export function validateEmail(email) {
-  console.log(email)
   if (!email.length) {
     return {
       errorMessage: 'Required field.',
