@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactUsModal from './components/Modals/ContactUs'
+import ContactUsModal from './components/Modals/ContactUs/ContactUs'
 
 function App() {
   return (

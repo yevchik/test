@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import TextInput from '../../TextInput'
+import TextInput from '../../TextInput/TextInput'
 import css from './ContactUs.module.scss'
 import ellipse from '../../../assets/images/Ellipse.png'
 import { validateEmail, validateName} from '../../../helpers/serviceFunctions'
 import Modal from '../Modal'
-import Button from '../../Button'
-import Progres from '../../Progress'
+import Button from '../../Button/Button'
+import Progres from '../../Progress/Progress'
 
 const ContactUs = () => {
   const [value, setValue] = useState({
