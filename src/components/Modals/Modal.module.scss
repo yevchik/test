@@ -33,3 +33,15 @@
   text-align: center;
   margin-bottom: 4px;
 }
+
+@media (max-width: 576px) {
+  .wrapper {
+    width: 360px;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    background: #EDF2F4;
+    padding: 20px 20px 16px;
+  }
+}
