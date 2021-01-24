@@ -71,6 +71,9 @@ const ContactUs = () => {
       email: validateEmail(value.email),
       description: validateName(value.description),
     })
+    if (!Object.values(validate).some(item => item.status === 'error')) {
+      alert(`name: ${value.name}, email: ${value.email}, description: ${value.description}`)
+    }
   }
 
   return (
