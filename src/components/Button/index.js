@@ -11,7 +11,7 @@ const Button = ({
 
   return (
     <div
-      className={classnames(css.button, className, {
+      className={classnames(className, css.button, {
         [css.buttonFilled]: btnStyle === 'buttonFilled',
       })}
       onClick={handleClick}>

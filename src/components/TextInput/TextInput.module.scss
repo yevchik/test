@@ -1,12 +1,13 @@
-@import "../../styles/variables";
-
 .input {
   border: 1px solid var(--color-buttons-main);;
-  border-radius:5x;
-  padding: 8px;
+  border-radius: 5px;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 16px;
+  padding: 12px;
+  resize: none;
+  background-color: #ffffff00;
+  font-family: 'Roboto', sans-serif;
   &:focus { 
     outline:none;
   }
@@ -16,8 +17,18 @@
   border: 1px solid var(--color-highlight-errors);
 }
 
+.signature {
+  font-size: 16px;
+  margin: 2px;
+}
+
 .errorMessage {
   font-size: 14px;
   color: var(--color-highlight-errors);
   margin: 0;
+}
+
+.block {
+  display: grid;
+  margin: 8px 0;
 }

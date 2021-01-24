@@ -2,11 +2,12 @@ import React, {useState} from 'react'
 import TextInput from '../../TextInput'
 import css from './ContactUs.module.scss'
 import ellipse from '../../../assets/images/Ellipse.png'
-import Modal from '../Modal'
 import { validateEmail, validateName} from '../../../helpers/serviceFunctions'
+import Modal from '../Modal'
+import Button from '../../Button'
+import Progres from '../../Progress'
 
 const ContactUs = () => {
-
   const [value, setValue] = useState({
     name: '',
     email: '',
@@ -60,19 +61,28 @@ const ContactUs = () => {
     <Modal image={ellipse} signature='Contact us'>
       <TextInput
         name='name'
+        placeholder="Vladyslav Rasenko"
         signature='Full Name'
         onBlur={setValidatedName}
         onChange={onChangeValue}/>
       <TextInput
         name='email'
+        placeholder="vladyslav@sidekicks.dev"
         onBlur={setValidatedEmail}
         signature='Email'
         onChange={onChangeValue}/>
       <TextInput
         name='description'
+        placeholder="Type description here"
+        rows={14}
         onBlur={setValidatedEmail}
         signature='Description'
         onChange={onChangeValue}/>
+      <Progres/>
+      <Button
+        handleClick={()=>{}}
+        className={css.button}
+        label="Submit"/>
     </Modal>
   )
 }
