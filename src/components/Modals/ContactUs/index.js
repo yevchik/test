@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import TextInput from '../../TextInput'
 import css from './ContactUs.module.scss'
 import ellipse from '../../../assets/images/Ellipse.png'
@@ -13,21 +13,29 @@ const ContactUs = () => {
     email: '',
     description: '',
   })
-  
+  const [progress, setProgress] = useState(0)
   const [validate, setValidate] = useState({
     name: {
       errorMessage: '',
-      status: 'usual'
+      status: 'usual',
     },
     email: {
       errorMessage: '',
-      status: 'usual'
+      status: 'usual',
     },
     description: {
       errorMessage: '',
-      status: 'usual'
+      status: 'usual',
     },
   })
+
+  useEffect(() => {
+    const validInputs = Object.values(validate).reduce((reduser, item)=> 
+      item.status === 'success' ? reduser + 1 : reduser
+    ,0)
+    // find percentage
+    setProgress((100 * validInputs) / Object.values(validate).length + 1)
+  }, [validate]);
 
   function onChangeValue(key, newValue) {
     setValue({
@@ -38,7 +46,7 @@ const ContactUs = () => {
       ...validate,
       [key]: {
         errorMessage: '',
-        status: 'usual'
+        status: 'usual',
       }
     })
   }
@@ -50,10 +58,18 @@ const ContactUs = () => {
     })
   }
 
-  function setValidatedName() {
+  const setValidatedValue = (key) => (e) => {
     setValidate({
       ...validate,
-      name: validateName(value.name)
+      [key]: validateName(value[key])
+    })
+  }
+
+  const handleSendForm = () => {
+    setValidate({
+      name: validateName(value.name),
+      email: validateEmail(value.email),
+      description: validateName(value.description),
     })
   }
 
@@ -61,26 +77,33 @@ const ContactUs = () => {
     <Modal image={ellipse} signature='Contact us'>
       <TextInput
         name='name'
+        value={value.name}
+        validate={validate.name}
         placeholder="Vladyslav Rasenko"
         signature='Full Name'
-        onBlur={setValidatedName}
+        onBlur={setValidatedValue('name')}
         onChange={onChangeValue}/>
       <TextInput
         name='email'
+        value={value.email}
+        validate={validate.email}
         placeholder="vladyslav@sidekicks.dev"
         onBlur={setValidatedEmail}
         signature='Email'
         onChange={onChangeValue}/>
       <TextInput
         name='description'
+        value={value.description}
+        validate={validate.description}
         placeholder="Type description here"
         rows={14}
-        onBlur={setValidatedEmail}
+        onBlur={setValidatedValue('description')}
         signature='Description'
         onChange={onChangeValue}/>
-      <Progres/>
+      <Progres
+        value={progress}/>
       <Button
-        handleClick={()=>{}}
+        handleClick={handleSendForm}
         className={css.button}
         label="Submit"/>
     </Modal>

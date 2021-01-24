@@ -4,7 +4,7 @@ import css from './Progress.module.scss'
 
 const Progress = ({
   withImg=true,
-  value='50'
+  value
 }) => {
 
   return (

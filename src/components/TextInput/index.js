@@ -2,20 +2,20 @@ import React, { useRef } from 'react'
 import classnames from 'classnames'
 import css from './TextInput.module.scss'
 
-const TextInput = ({onChange, rows="1", signature, name, className, errorMessage, status, ...props}) => {
-  const inputRef = useRef();
+const TextInput = ({onChange, rows="1", signature, name, className, validate, ...props}) => {
 
   return (
     <div className={css.block}>
-      <p className={css.signature}>{signature}</p>
-      {status === 'error' && <p className={css.errorMessage}>{errorMessage}</p>}
+      <div className={css.signatureBlock}>
+        <p className={css.signature}>{signature}</p>
+        {validate.status === 'error' && <p className={css.errorMessage}>{validate.errorMessage}</p>}
+      </div>
       <textarea
         {...props}
-        ref={inputRef}
         rows={rows}
         onChange={e=>onChange(name, e.target.value)}
         className={classnames(css.input, className, {
-          [css.error]: status === 'error',
+          [css.error]: validate.status === 'error',
         })}/>
     </div>
   )

@@ -4,11 +4,6 @@ export function validateName(value) {
       errorMessage: 'Required field.',
       status: 'error'
     }
-  }else if (!value.match(/^[A-Za-zА-Яа-яЁё]+$/)) {
-    return {
-      errorMessage: 'Only letters allowed',
-      status: 'error'
-    }
   }
   return {
     errorMessage: '',
@@ -17,6 +12,7 @@ export function validateName(value) {
 }
 
 export function validateEmail(email) {
+  console.log(email)
   if (!email.length) {
     return {
       errorMessage: 'Required field.',
@@ -26,8 +22,12 @@ export function validateEmail(email) {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (!re.test(String(email).toLowerCase())) {
     return {
-      errorMessage: 'email is invalid',
+      errorMessage: 'Email is invalid',
       status: 'error'
     }
+  }
+  return {
+    errorMessage: '',
+    status: 'success'
   }
 }

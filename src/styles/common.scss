@@ -9,6 +9,10 @@ body {
   letter-spacing: -0.02em;
 }
 
+p {
+  margin: 0;
+}
+
 h3 {
   font-size: 26px;
   @include hNormalize;
